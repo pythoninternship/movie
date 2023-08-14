@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    .movies-container {
+        text-align: left;
+    }
+
+    .movie-item {
+        display: inline-block;
+        margin: 10px;
+        max-width: 200px;
+    }
+
+    .movie-name {
+        color: green;
+        display: block;
+        font-size: 18px;
+        margin-top: 5px;
+        text-decoration: none;
+    }
+
+    .movie-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+
+</style>
+
+<h2><b>Movies List:</b></h2>
+<br><br>
+
+<div class="movies-container">
+    {% for movie in movie_list %}
+    <div class="card movie-item">
+        <img src="{{ movie.img.url }}" class="card-img-top movie-image" alt="{{ movie.name }}">
+        <div class="card-body">
+            <h5>{{ movie.name }}</h5><br>
+
+             <a class="btn btn-warning" href="{% url 'movieapp:detail' movie.id %}">View Details</a>
+<!--     <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">Delete</a>-->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

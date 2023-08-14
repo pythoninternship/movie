@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    .movie-description {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>
+
+<div style="text-align: center;">
+    <br>
+    <h2>{{ movie.name }}
+    </h2>
+    <img src="{{ movie.img.url }}" width="150" height="150"><br>
+    <div class="movie-description">{{ movie.desc }}</div>
+    <b> Year:</b>{{ movie.year }}<br>
+     <a class="btn btn-warning" href="{% url 'movieapp:update' movie.id %}">Update</a>
+     <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">Delete</a>
+
+</div>
+{% endblock %}

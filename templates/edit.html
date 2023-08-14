@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                    <h2>Update Form</h2>
+
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+            <br>
+
+            <label for="{{ form.desc.id_for_label }}">Description:</label>
+            {{ form.desc }}
+            <br>
+
+
+            <label for="{{ form.year.id_for_label }}">Year:</label>
+            {{ form.year }}
+            <br>
+
+            <label for="{{ form.img.id_for_label }}">Image:</label>
+            {{ form.img }}
+
+
+            <br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+{% endblock %}
